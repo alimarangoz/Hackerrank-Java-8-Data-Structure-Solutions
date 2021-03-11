@@ -1,0 +1,29 @@
+static int luckBalance(int k, int[][] contests) {
+        
+        List<Integer> list = new ArrayList<>();
+        
+        
+        int counter = 0;
+        int operation =0;
+        for(int i = 0;i<contests.length;i++){
+            if(contests[i][1]==0){
+                counter+=contests[i][0];
+            }else{                
+                counter+=contests[i][0];
+                list.add(contests[i][0]);
+                operation++;
+                   
+            }                        
+        }
+        if(operation>k){
+            Collections.sort(list); 
+            int difBtwnOpK = operation - k;
+            for(int i = 0 ; i < difBtwnOpK ; i++){
+                counter -= 2*list.get(i); //it also include in list.
+            }
+        }
+        return counter;
+        
+        
+             
+    }

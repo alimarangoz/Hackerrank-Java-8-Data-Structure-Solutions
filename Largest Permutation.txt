@@ -1,0 +1,40 @@
+static int[] largestPermutation(int k,int arr[]){
+    
+ 
+        int n = arr.length;
+        int indexArr[] = new int[n + 1];
+ 
+        for (int i = 0; i < n; ++i)
+            indexArr[arr[i]] = i;
+ 
+        for (int i = 0; i < n && k > 0; ++i) {
+ 
+            
+            if (arr[i] == n - i)
+                continue;
+            
+            int temp = indexArr[n - i];
+ 
+            
+            indexArr[arr[i]] = indexArr[n - i];
+            indexArr[n - i] = i;
+ 
+            
+            int tmp1 = arr[temp];
+            arr[temp] = arr[i];
+            arr[i] = tmp1;
+ 
+            
+            --k;
+        }
+	return arr;
+    }
+
+// If element is already i'th
+// largest, then no need to swap
+// Find position of i'th largest
+// value, n-i
+// Swap the elements position
+// Swap the ith largest value with the
+// current value at ith place
+// decrement number of swaps
