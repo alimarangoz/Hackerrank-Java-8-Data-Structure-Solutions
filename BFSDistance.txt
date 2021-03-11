@@ -1,0 +1,34 @@
+public static Map<Integer, Integer> bfsDistance(DirectedGraph digraph, Integer start) {
+        Map<Integer, Integer> distance = new HashMap<Integer, Integer>();
+
+        Queue<Integer> queue = new LinkedList<>();
+
+        queue.add(start);
+
+        for(int vertex : digraph.adjList.keySet()){
+            distance.put(vertex,-1);
+        }
+
+        distance.put(start,0);
+
+        while(!queue.isEmpty()){
+
+            int removeItem = queue.remove();
+
+            int dis = distance.get(removeItem);
+
+            for(int i = 0;i<digraph.adjList.get(removeItem).size();i++){
+
+                int getItem = digraph.adjList.get(removeItem).get(i);
+
+                if(distance.get(getItem) == -1){
+
+                    distance.put(getItem , dis + 1);
+
+                    queue.add(getItem);
+                }
+            }
+        }
+
+        return distance;
+    }
