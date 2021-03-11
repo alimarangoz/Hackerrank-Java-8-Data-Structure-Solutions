@@ -1,0 +1,11 @@
+    public static void postOrder(Node root) {
+        
+        if(root != null){
+            postOrder(root.left);
+            postOrder(root.right);
+            System.out.print(root.data +" ");
+        }
+    }
+
+In Post-order traversal I visit left subtree first, then the right subtree, and the root node at the end.
+Time complexity = O(n)

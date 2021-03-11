@@ -1,0 +1,16 @@
+    public static void inOrder(Node root) {
+        
+        if(root != null){
+            inOrder(root.left);
+            System.out.print(root.data + " ");
+            inOrder(root.right);
+        }
+
+    }
+
+The base case is that i want to reach the leaf node and there is no more node to explore, at that point of time recursion starts to wind down
+
+
+The in-order traversal consists of first visiting the left sub-tree, then the root node, and finally the right sub-tree.
+
+Time complexity = O(n)

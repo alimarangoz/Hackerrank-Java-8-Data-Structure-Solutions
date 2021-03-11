@@ -1,0 +1,2 @@
+First object has a referance to second object and second object has a referance to third object and it goes on like this.
+Node class has two things which names are next and data.

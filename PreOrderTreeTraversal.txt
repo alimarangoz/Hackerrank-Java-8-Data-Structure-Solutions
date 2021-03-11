@@ -1,0 +1,14 @@
+    public static void preOrder(Node root) {
+        
+        if(root != null){
+            System.out.print(root.data + " ");
+            preOrder(root.left);
+            preOrder(root.right);
+        }
+        
+    }
+
+
+
+In Pre-order traversal I visit the root node first, then the left subtree, and finally the right subtree.
+Time Complexity = O(n)

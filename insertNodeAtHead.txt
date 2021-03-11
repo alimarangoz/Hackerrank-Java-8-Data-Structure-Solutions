@@ -1,0 +1,22 @@
+    static SinglyLinkedListNode insertNodeAtHead(SinglyLinkedListNode llist, int data) {
+        
+        SinglyLinkedListNode slln = new SinglyLinkedListNode(data);
+        slln.data = data; //
+        slln.next = null; //
+        
+        if(llist == null){ //The head pointer given may be null meaning that the initial list is empty.
+            return slln;
+        }else{
+            slln.next = llist;
+            llist = slln; //
+            return llist;
+        }
+        
+        
+
+    }
+
+data =  stores a value.
+next = points to the next node in the list.
+// olmadan da çalışır.
+Time complexity = O(n)

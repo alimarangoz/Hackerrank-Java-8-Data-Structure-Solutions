@@ -1,0 +1,23 @@
+    static SinglyLinkedListNode deleteNode(SinglyLinkedListNode head, int position) {
+        
+        if(head == null){
+            return head;
+        }
+        if(position == 0){
+            return head.next;
+        }
+        
+        SinglyLinkedListNode temp = head;
+        
+        for(int i = 0 ; i < position-1;i++){
+            temp = temp.next;
+        }
+        
+        temp.next = temp.next.next;
+        
+        return head;
+        
+
+    }
+
+Time complexity = O(n)

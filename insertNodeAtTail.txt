@@ -1,0 +1,19 @@
+    static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
+        SinglyLinkedListNode slln =new SinglyLinkedListNode(data);
+        slln.data = data;
+        slln.next = null;
+        
+        if(head == null){
+            return slln;
+        }else{
+            SinglyLinkedListNode tempNode = head;
+            while(tempNode.next != null){
+                tempNode = tempNode.next;
+            }
+            
+            tempNode.next = slln;
+            
+            return head;
+        }
+
+Time complexity = O(n)

@@ -1,0 +1,88 @@
+    public static Solution.ListCell<Integer>TotalSorting(Solution.ListCell<Integer>head,int leftSize , int rightSize){
+        int middle = (leftSize + rightSize)/2;
+        
+        if(middle==0){ // null pointer exception error
+            return head;
+        }
+        
+        Solution.ListCell<Integer> remaining = head;
+        Solution.ListCell<Integer> left = null;
+        Solution.ListCell<Integer> right = null;
+        Solution.ListCell<Integer> leftRemaining = null;
+        
+        for(int i = 0 ; i<middle;i++){
+            if(left==null){
+                left = new Solution.ListCell<>(remaining.datum,null);
+                leftRemaining = left;
+                remaining = remaining.next;
+            }else{
+                leftRemaining.next = new Solution.ListCell<>(remaining.datum,null);
+                leftRemaining = leftRemaining.next;
+                remaining = remaining.next;
+            }
+        }
+        right = remaining;
+        leftRemaining.next = null;
+        
+        int[] first = leftRight(leftSize);
+        int[] second = leftRight(rightSize);
+         Solution.ListCell<Integer> leftList = TotalSorting(left,first[0],first[1]);
+         Solution.ListCell<Integer> rightList = TotalSorting(right,second[0],second[1]);
+         Solution.ListCell<Integer> answer = mergeSort(leftList , rightList);
+        
+        return answer;
+        
+    }
+    
+    
+    
+    private static Solution.ListCell<Integer> mergeSort(Solution.ListCell<Integer> left , Solution.ListCell<Integer> right) {
+
+            Solution.ListCell<Integer> sorting = null;
+            if(left.datum <= right.datum) {
+                sorting = new  Solution.ListCell<Integer>(left.datum, null);
+                left = left.next;
+            } else {
+                sorting = new  Solution.ListCell<Integer>(right.datum, null);
+                right = right.next;
+            }
+
+
+            Solution.ListCell<Integer> answer;
+            for(answer  = sorting; left != null && right != null; answer = answer.next)
+            {
+                if(left.datum <= right.datum)
+                {
+                    answer.next = left;
+                    left = left.next;
+                }
+                else
+                {
+                    answer.next = right;
+                    right= right.next;
+                }
+
+            }
+
+            if(left == null){
+                answer.next = right;
+            }else{
+                answer.next = left;
+            }
+            
+            return sorting;
+        }
+    
+        public static int[] leftRight(int size){
+            int[] leftRight = new int[2];
+            int middleSize = size/2;
+            if(size % 2 == 0){
+                leftRight[0] = middleSize;
+                leftRight[1] = middleSize;       
+            }else{
+                leftRight[0] = middleSize;
+                leftRight[1] = middleSize+1;
+            }
+            
+            return leftRight;
+        }
