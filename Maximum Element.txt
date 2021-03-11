@@ -1,0 +1,31 @@
+Stack<Integer> stack = new Stack<Integer>();
+        
+        int queries = scanner.nextInt();
+        
+        int choice ;
+        
+        int item = 0;
+        
+        for(int i = 0 ; i < queries ;i++){
+            choice = scanner.nextInt();
+            if(choice == 1){
+                
+                item = scanner.nextInt();
+                
+                if(stack.isEmpty()){
+                    stack.push(item);
+                }else if (stack.peek() > item){
+                    stack.push(stack.peek());
+                    
+                }else{
+                    stack.push(item);
+                }
+                
+        }else if(choice == 2){
+                
+                stack.pop();
+            }else{
+                System.out.println(stack.peek());
+            }      
+        
+        }

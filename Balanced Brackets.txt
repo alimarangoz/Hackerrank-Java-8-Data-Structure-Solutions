@@ -1,0 +1,35 @@
+static String isBalanced(String s) {
+        
+        
+        Stack<Character> stack = new Stack<>();
+        
+        
+        int length = s.length();
+        char open1 = '{';
+        char close1 = '}';
+        char open2 = '[';
+        char close2 = ']';
+        char open3 = '(';
+        char close3 = ')';
+        
+        for(int i = 0 ; i < length ; i++){
+            if(s.charAt(i) == open1){
+                stack.push(close1);
+            }else if(s.charAt(i) == open2){
+                stack.push(close2);
+            }else if(s.charAt(i) == open3){
+                stack.push(close3);
+            }else if (stack.isEmpty() || stack.peek() != s.charAt(i)){
+                return "NO";
+            }else{
+                stack.pop();
+            }
+
+        }
+            if(stack.isEmpty()){
+                return "YES";
+            }else{
+                return "NO";
+            }
+        
+    }

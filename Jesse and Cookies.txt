@@ -1,0 +1,28 @@
+static int cookies(int k, int[] A) {
+        
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int i : A){
+            pq.add(i);
+        }
+        int counter = 0;
+        for(;pq.size() >= 2;){
+            if(pq.peek() >= k){
+                return counter;
+            }else{
+                int cookie1 = pq.poll();
+                int cookie2 = pq.poll();
+                int newCookie = cookie1 + (2*cookie2);
+                pq.add(newCookie);
+                counter++; 
+            }       
+                    
+        }
+        if(pq.peek()>=k){
+            return counter;
+        }else{
+            return -1;
+        }
+        
+        
+
+    }

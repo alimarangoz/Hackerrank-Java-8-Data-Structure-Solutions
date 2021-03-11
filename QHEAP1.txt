@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        Scanner scanner = new Scanner(System.in);
+        int queries = scanner.nextInt();
+        int choice;
+        
+        for(int i = 0 ; i < queries ; i++){
+            choice = scanner.nextInt();
+            if(choice ==1){
+                pq.add(scanner.nextInt());
+            }else if(choice ==2){
+                pq.remove(scanner.nextInt());
+            }else{
+                System.out.println(pq.peek());
+            }
+        }
+    }
+}

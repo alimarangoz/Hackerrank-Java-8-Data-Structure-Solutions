@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Stack<Integer> stack1 = new Stack<>();
+        Stack<Integer> stack2 = new Stack<>();
+        Scanner scanner = new Scanner(System.in);
+        int queries = scanner.nextInt();
+        int choice ;
+        for(int i = 0 ; i < queries;i++){
+            choice = scanner.nextInt();
+            if(choice == 1){
+               stack1.push(scanner.nextInt());
+            }else{
+                if(stack2.isEmpty()){
+                while(!stack1.isEmpty()){
+                    stack2.push(stack1.pop());
+                    }
+                }
+            }if (choice ==2){
+                stack2.pop();
+            }if(choice ==3){
+                System.out.println(stack2.peek());
+            }
+        }
+    }
+}
