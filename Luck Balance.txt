@@ -23,7 +23,7 @@ static int luckBalance(int k, int[][] contests) {
             }
         }
         return counter;
-        
+         
         
              
     }
