@@ -1,11 +1,3 @@
-package Schedule;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-
 public class secondSmallestValue {
         static void secondSmallest(int arr[]) {
         int smallest = Integer.MAX_VALUE;
