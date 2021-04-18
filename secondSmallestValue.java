@@ -20,7 +20,7 @@ public class secondSmallestValue {
                 secondSmallest = smallest;
                 smallest = arr[i];
             }
-            //ara değeri bulma
+            
             else if (arr[i] < secondSmallest && arr[i] != smallest)
                 secondSmallest = arr[i];
         }
@@ -33,10 +33,10 @@ public class secondSmallestValue {
 
     public static void main (String[] args)
     {
-        String s = "ali";
-        int arr[] = {13,14,15};
-        //secondSmallest(arr);
-        System.out.println(s.contains("a"));
+       
+        int arr[] = {13,13,15,14,15};
+        
+        System.out.println(secondSmallest(arr));
     }
 
 }
